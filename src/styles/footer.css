@@ -1,0 +1,63 @@
+footer {
+    text-align: left;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-between;
+    background-color: rgb(236, 137, 7);
+    width: 60%;
+    min-width: 320px;
+}
+
+.linkovi {
+    background-color: burlywood;
+    display: flex;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.logo {
+    margin: 0 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.adminButton {
+    background-color: burlywood;
+    padding: 5px;
+    border-radius: 7px;
+    transition-duration: .8s;
+}
+
+.adminButton:hover {
+    transform: scale(1.1);
+    border: 3px solid rgb(109, 80, 77);
+}
+
+.adminButton a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 321px) {
+    footer {
+        min-width: 90%;
+        padding: 10px;
+        justify-content: center;
+    }
+    .linkovi {
+        width: 95%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .adminButton {
+        text-align: center;
+        width: 90%;
+    }
+}

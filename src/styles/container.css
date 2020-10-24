@@ -1,0 +1,33 @@
+.container {
+    text-align: left;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-between;
+    background-color: rgb(236, 137, 7);
+    width: 60%;
+    min-width: 320px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .container {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .container {
+        width: 90%;
+        min-width: 100px;
+    }
+}
