@@ -1,17 +1,24 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/container.css';
 
 import Animation from './Animation';
 
 const AnimationsContainer = ({ snippets }) => {
-    const animationComponent = snippets.map((animation, idx) => {
+    const [newSnippets, setNewSnippets] = useState([]);
+
+    snippets.then(data => {
+        setNewSnippets(data);
+    });
+
+    const animationComponent = newSnippets.map((animation) => {
         return (
             <Animation 
-                key={idx} 
-                name={snippets[idx].name} 
-                gif={snippets[idx].gif} 
-                description={snippets[idx].description}
+                key={animation._id} 
+                name={animation.name} 
+                gif={animation.gifAdrress} 
+                description={animation.description}
+                link={animation.linkToAnimationPage}
             />
         )
     });

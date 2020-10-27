@@ -8,17 +8,6 @@ const app = require('../app');
 const debug = require('debug')('api:server');
 const http = require('http');
 
-//Import the mongoose module
-const mongoose = require('mongoose');
-
-const animationSchema = new mongoose.Schema({
-    name: String,
-    gifAdrress: String,
-    description: String
-});
-
-const Animation = mongoose.model('animations', animationSchema);
-
 /**
  * Get port from environment and store in Express.
  */
@@ -43,37 +32,6 @@ server.on('listening', onListening);
 /**
  * Event listener for HTTP server "error" event.
  */
-
-app.get('/animations', (req, res) => {
-    console.log('Ide jaki flex');
-    Animation.find({}, (err, docs) => {
-        if (err) {
-            res.json(err);
-        } else {
-            res.json(docs);
-        }
-    });
-});
-
-const connect = () => {
-    return mongoose.connect('mongodb://localhost:27017/animationsdb', { useNewUrlParser: true, useUnifiedTopology: true });
-}
-
-connect()
-    /*.then(async connection => {
-        const newAnimation = new Animation({
-            name: 'Neka animacija',
-            gifAdrress: 'slika.jpg',
-            description: 'Ide gas'
-        });
-
-        // Save the new model instance, passing a callback
-        newAnimation.save(err => {
-            if (err) return handleError(err);
-            // saved!
-        });
-    })
-    .catch(e => console.error(e));*/
 
 function onError(error) {
     if (error.syscall !== 'listen') {

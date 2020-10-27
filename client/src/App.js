@@ -5,34 +5,21 @@ import HeaderComponent from './components/Header';
 import AnimationsContainer from './components/AnimationsContainer';
 import Footer from './components/Footer';
 
-import animationsInfo from './data/animationsInfo';
+async function getFromDB(url) { 
+  const res = await fetch(url); 
+  const json = await res.json();
+  const animationsList = json.animations;
+
+  return animationsList;
+};
 
 function App() {
-  const getFromDB = async () => {
-    return await fetch("http://localhost:8080/animations", {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'API-Key': 'secret'
-              }
-            })
-            .then(res => res.text())
-            .then(text => console.log(text)) 
-            /*.then(res => res.json())
-            .then(data => {
-              console.log(data.animations);
-              return data.animations;
-            }) 
-            .catch(error => {
-              console.log(error);
-            });*/
-  }
-
   return (
     <div className="App">
       <HeaderComponent/>
       <AnimationsContainer 
-        snippets={getFromDB() || []}
+        // db location
+        snippets={getFromDB("http://localhost:8080/animations")}
       />
       <Footer/>
     </div>
