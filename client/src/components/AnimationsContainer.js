@@ -7,9 +7,7 @@ import Animation from './Animation';
 const AnimationsContainer = ({ snippets }) => {
     const [newSnippets, setNewSnippets] = useState([]);
 
-    snippets.then(data => {
-        setNewSnippets(data);
-    });
+    snippets.then(data => setNewSnippets(data));
 
     const animationComponent = newSnippets.map((animation) => {
         return (
