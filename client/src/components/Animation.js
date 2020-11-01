@@ -3,7 +3,6 @@ import '../styles/animation.css';
 
 // eslint-disable-next-line react/prop-types
 const Animation = ({ name, gif, description, link }) => {
-    console.log(gif);
     return (
         <div className="block">
             <div className="naslov-link">

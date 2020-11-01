@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const path = require('path');
 
 const animationSchema = new mongoose.Schema({
     name: String,
@@ -16,7 +17,6 @@ router.get('/', (req, res) => {
         if (err) {
             res.json(err);
         } else {
-            //docs.forEach(item => console.log(item.linkToAnimationPage))
             res.json({ animations: docs });
         }
     });

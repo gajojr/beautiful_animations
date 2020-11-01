@@ -11,6 +11,7 @@ const usersRouter = require('./routes/users');
 const testAPIRouter = require('./routes/testAPI');
 const animationsRouter = require('./routes/animations');
 const adminRouter = require('./routes/admin');
+const newAnimation = require('./routes/newAnimation');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/animations', animationsRouter);
 app.use('/adminPage', adminRouter);
+app.use('/newAnimation', newAnimation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
