@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Spinner loading animation. Using html and css." />
-    <title>Spinner</title>
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Animated Button</title>
     <style>
         .centered {
             text-align: center;
@@ -27,24 +27,20 @@
             text-align: left;
         }
         
-        .loader {
+        .hover-btn {
             margin-top: 150px;
             align-self: center;
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
+            outline: none;
+            border-radius: 10px;
+            font-size: 1.25rem;
             width: 150px;
-            height: 150px;
-            animation: spin 2s linear infinite;
+            height: 100px;
+            transition: linear 0.6s;
         }
         
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        .hover-btn:hover {
+            background-color: greenyellow;
+            transform: scale(1.2);
         }
         
         .code {
@@ -102,9 +98,9 @@
 
 <body>
     <div class="centered">
-        <h1>This is loader animation</h1>
-        <p class="animation-description">This will keep your users enteretained while they are waiting</p>
-        <div class="loader"></div>
+        <h1>This is button hover transition</h1>
+        <p class="animation-description">This makes button hovering smooth and beutiful</p>
+        <button type="button" class="hover-btn">Hover me!</button>
         <div class="code">
             <div class="code-snippet">
                 <div class="header-copy">
@@ -122,7 +118,7 @@
         &lt;title&gt;Loader&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;div class="loader"&gt;&lt;/div&gt;               
+        &lt;button type="button" class="hover-btn"&gt;Hover me!&lt;/button&gt;           
     &lt;/body&gt;
     &lt;/html&gt;
 
@@ -144,25 +140,21 @@
                 <div class="align-left">
                     <pre>
                         <code>
-    .loader {
-        margin-top: 30px;
+    .hover-btn {
+        margin-top: 150px;
         align-self: center;
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
+        outline: none;
+        border-radius: 10px;
+        font-size: 1.25rem;
+        width: 150px;
+        height: 100px;
+        transition: linear 0.6s;
     }
-                                    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }   
+                            
+    .hover-btn:hover {
+        background-color: greenyellow;
+        transform: scale(1.2);
+    }  
                         </code>
                     </pre>
                 </div>
