@@ -10,7 +10,7 @@ const Footer = () => {
                 <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
             </div>
             <div className="adminButton">
-                <a href="http://localhost:8080/adminPage">Admin login</a>
+                <a href="http://localhost:8080/admin-login">Admin login</a>
             </div>
         </footer>
     );

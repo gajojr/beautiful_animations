@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const path = require('path');
+
+mongoose.set('useFindAndModify', false);
 
 const animationSchema = new mongoose.Schema({
     name: String,
@@ -12,12 +13,44 @@ const animationSchema = new mongoose.Schema({
 
 const Animation = mongoose.model('animations', animationSchema);
 
-router.get('/', (req, res) => {
-    Animation.find({}, (err, docs) => {
+router.get('/', async(req, res) => {
+    await Animation.find({}, (err, docs) => {
         if (err) {
             res.json(err);
         } else {
             res.json({ animations: docs });
+        }
+    });
+});
+
+router.post('/', async(req, res) => {
+    const animation = await new Animation({
+        name: req.body.name,
+        gifAdrress: req.body.gifAdrress,
+        description: req.body.description,
+        linkToAnimationPage: req.body.linkToPage
+    });
+    animation.save(function(err) {
+        if (err) return handleError(err);
+        // saved!
+    });
+});
+
+router.put('/', async(req, res) => {
+    await Animation.findOneAndUpdate({
+        linkToAnimationPage: req.body.linkToFind
+    }, {
+        name: req.body.name,
+        description: req.body.description,
+        gifAdrress: req.body.gifAdrress,
+        linkToAnimationPage: req.body.linkToUpdate
+    });
+});
+
+router.delete('/', async(req, res) => {
+    await Animation.findOneAndRemove({ linkToAnimationPage: req.body.linkToDeleteBy }, (err, deletedRecord) => {
+        if (!err) {
+            console.log(deletedRecord);
         }
     });
 });
