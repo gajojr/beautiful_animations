@@ -1,15 +1,17 @@
 const addNewAnimationDiv = document.querySelector('.add');
 const updateAnimation = document.querySelector('.update');
 const deleteAnimation = document.querySelector('.delete');
+const changePasswordDiv = document.querySelector('.change-password-form');
 
 const addPanel = document.getElementById('add-panel');
 const updatePanel = document.getElementById('update-panel');
 const deletePanel = document.getElementById('delete-panel');
+const changePasswordPanel = document.querySelector('.change-password-panel');
 
 // We are hiding all panel because we want user to select first
-const panels = [addNewAnimationDiv, updateAnimation, deleteAnimation];
+const panels = [addNewAnimationDiv, updateAnimation, deleteAnimation, changePasswordDiv];
 
-const navBtns = [addPanel, updatePanel, deletePanel];
+const navBtns = [addPanel, updatePanel, deletePanel, changePasswordPanel];
 
 addPanel.addEventListener('click', () => {
     toggleDiv(addNewAnimationDiv, addPanel);
@@ -127,9 +129,49 @@ deletePanel.addEventListener('click', () => {
     });
 });
 
+changePasswordPanel.addEventListener('click', () => {
+    toggleDiv(changePasswordDiv, changePasswordPanel);
+
+    const submitButton = document.getElementById('change-password-submit');
+    submitButton.addEventListener('click', (e) => {
+        const username = document.getElementById('username');
+        const oldPassword = document.getElementById('old-password');
+        const newPassword = document.getElementById('new-password');
+        if (!username.value || !oldPassword.value || !newPassword.value) {
+            e.preventDefault();
+            shakingInputAnimation([username, oldPassword, newPassword]);
+            setTimeout(() => {
+                alert('You must fill in the field');
+            }, 800);
+        } else {
+            // update user's data
+
+            (async() => {
+                await fetch('/admin-login/change-password', {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username.value,
+                        oldPassword: oldPassword.value,
+                        newPassword: newPassword.value
+                    })
+                });
+            })();
+            setTimeout(() => {
+                location.reload();
+            }, 300);
+        }
+    });
+});
+
 const toggleDiv = (div, navBtn) => {
+    // check if div is already displayed, if yes hide it, if no show it
     div.style.display = (div.style.display === 'none') ? 'flex' : 'none';
-    navBtn.classList.add('active-panel');
+    // check if panel has active class, because we don't want to leave active class on panel if use other panel
+    navBtn.classList.contains('active-panel') ? navBtn.classList.remove('active-panel') : navBtn.classList.add('active-panel');
     // Here we loop trough navBtns and panels array so we are using for loop because they are same length
     for (let i = 0; i < navBtns.length; i++) {
         if (panels[i] !== div && panels[i].style.display !== 'none') {

@@ -1,3 +1,8 @@
+const check_user_login = sessionStorage.getItem('user_loged_in');
+if (check_user_login) {
+    location.href = '/admin-page';
+}
+
 const logInBtn = document.getElementById('login-button')
 logInBtn.addEventListener('click', (e) => {
     const username = document.getElementById('username');
@@ -23,6 +28,7 @@ logInBtn.addEventListener('click', (e) => {
             })
             .then((response) => {
                 if (response.status === 200) {
+                    sessionStorage.setItem('user_loged_in', 'correct');
                     location.href = '/admin-page';
                 } else {
                     location.href = '/admin-login';

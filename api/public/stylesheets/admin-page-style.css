@@ -18,7 +18,8 @@ body {
     justify-content: space-between;
 }
 
-.add-update-delete {
+.add-update-delete,
+.change-password-panel {
     flex: 1;
     height: 50px;
     transition: .8s;
@@ -27,7 +28,8 @@ body {
     align-items: center;
 }
 
-.add-update-delete:hover {
+.add-update-delete:hover,
+.change-password-panel:hover {
     cursor: pointer;
     background-color: #000;
     color: #fff;
@@ -68,7 +70,8 @@ label {
 
 .add-new-animation,
 .update-animation,
-.delete-animation {
+.delete-animation,
+#change-password-submit {
     align-self: center;
     padding: 5px;
     width: 100px;
@@ -82,8 +85,20 @@ label {
 
 .add-new-animation:hover,
 .update-animation:hover,
-.delete-animation:hover {
+.delete-animation:hover,
+#change-password-submit:hover {
     background-color: rgba(117, 97, 70, 0.6);
+}
+
+.change-password-div {
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: whitesmoke;
+}
+
+#change-password-submit {
+    margin-top: 10px;
 }
 
 
