@@ -1,3 +1,4 @@
+// check if user is already logged in in this session
 const check_user_login = sessionStorage.getItem('user_loged_in');
 if (check_user_login) {
     location.href = '/admin-page';

@@ -4,8 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
-
 const cors = require('cors');
+const compression = require('compression');
+const helmet = require("helmet");
+
 const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const animationsRouter = require('./routes/animations');
@@ -25,6 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, '../client/public/favicon.ico')));
+app.use(compression());
+app.use(helmet());
 
 app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
