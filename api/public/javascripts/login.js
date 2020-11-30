@@ -37,8 +37,10 @@ logInBtn.addEventListener('click', (e) => {
                     sessionStorage.setItem('loged_in', 'user');
                     location.href = '/user-page';
                 } else {
-                    location.href = '/login';
-                    alert('Username or password aren\'t correct');
+                    document.write('<h1>Wrong password or username, please try again!</h1><button id="login-failed">OK</button>');
+                    document.getElementById('login-failed').addEventListener('click', () => {
+                        location.reload();
+                    });
                 }
             });
     }
