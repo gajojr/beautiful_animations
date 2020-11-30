@@ -147,7 +147,7 @@ changePasswordPanel.addEventListener('click', () => {
             // update user's data
 
             (async() => {
-                await fetch('/admin-login/change-password', {
+                await fetch('/login/change-password', {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',

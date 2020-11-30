@@ -4,20 +4,26 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    username: String,
-    password: String
+    username: {
+        type: String,
+        unique: true
+    },
+    password: String,
+    role: String
 });
 
 const User = mongoose.model('users', userSchema);
 
-router.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'admin_login', 'admin-login.html')));
+router.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'login', 'login.html')));
 
 router.post('/', async(req, res) => {
     await User.findOne({ username: req.body.username, password: req.body.password }, (err, result) => {
-        if (result) {
+        if (result && result.role === 'admin') {
             res.sendStatus(200);
-        } else {
+        } else if (result) {
             res.sendStatus(201);
+        } else {
+            res.sendStatus(403);
         }
     });
 });

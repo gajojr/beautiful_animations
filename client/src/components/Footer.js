@@ -9,8 +9,13 @@ const Footer = () => {
                 <a href="mailto:andrijagajicbusiness@gmail.com"><img src='/images/social_media/email.png' alt="email logo" className="logo"/></a>
                 <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
             </div>
-            <div className="adminButton">
-                <a href="http://localhost:8080/admin-login">Admin login</a>
+            <div className="login-register">
+                <div className="adminButton">
+                    <a href="http://localhost:8080/register">Register</a>
+                </div>
+                <div className="adminButton">
+                    <a href="http://localhost:8080/login">Login</a>
+                </div>
             </div>
         </footer>
     );

@@ -11,8 +11,10 @@ const helmet = require("helmet");
 const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const animationsRouter = require('./routes/animations');
-const adminLoginRouter = require('./routes/admin-login');
+const loginRouter = require('./routes/login');
 const adminPageRouter = require('./routes/admin-page');
+const registerPage = require('./routes/register-page');
+const userPage = require('./routes/user-page');
 
 const app = express();
 
@@ -33,8 +35,10 @@ app.use(helmet());
 app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/animations', animationsRouter);
-app.use('/admin-login', adminLoginRouter);
+app.use('/login', loginRouter);
 app.use('/admin-page', adminPageRouter);
+app.use('/user-page', userPage);
+app.use('/register', registerPage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

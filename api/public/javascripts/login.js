@@ -1,7 +1,9 @@
 // check if user is already logged in in this session
-const check_user_login = sessionStorage.getItem('user_loged_in');
-if (check_user_login) {
+const check_user_login = sessionStorage.getItem('loged_in');
+if (check_user_login === 'admin') {
     location.href = '/admin-page';
+} else if (check_user_login === 'user') {
+    location.href = '/user-page';
 }
 
 const logInBtn = document.getElementById('login-button')
@@ -16,7 +18,7 @@ logInBtn.addEventListener('click', (e) => {
             alert('You must fill in the fields');
         }, 800);
     } else {
-        fetch('/admin-login', {
+        fetch('/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,10 +31,13 @@ logInBtn.addEventListener('click', (e) => {
             })
             .then((response) => {
                 if (response.status === 200) {
-                    sessionStorage.setItem('user_loged_in', 'correct');
+                    sessionStorage.setItem('loged_in', 'admin');
                     location.href = '/admin-page';
+                } else if (response.status === 201) {
+                    sessionStorage.setItem('loged_in', 'user');
+                    location.href = '/user-page';
                 } else {
-                    location.href = '/admin-login';
+                    location.href = '/login';
                     alert('Username or password aren\'t correct');
                 }
             });

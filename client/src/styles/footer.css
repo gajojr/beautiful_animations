@@ -27,12 +27,18 @@ footer {
     border-radius: 50%;
 }
 
+.login-register {
+    display: flex;
+    flex-direction: row;
+}
+
 .adminButton {
     cursor: pointer;
     background-color: rgb(231, 199, 95);
     box-shadow: 0 0.3rem rgba(255, 255, 255, 0.65);
     padding: 5px;
     border-radius: 7px;
+    margin-right: 5px;
     transition-duration: .6s;
 }
 
