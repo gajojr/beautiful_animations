@@ -10,12 +10,16 @@ const Footer = () => {
                 <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
             </div>
             <div className="login-register">
-                <div className="adminButton">
-                    <a href="http://localhost:8080/register">Register</a>
-                </div>
-                <div className="adminButton">
-                    <a href="http://localhost:8080/login">Login</a>
-                </div>
+                <a href="http://localhost:8080/register">
+                    <div className="adminButton">
+                        Register
+                    </div>
+                </a>
+                <a href="http://localhost:8080/login">
+                    <div className="adminButton">
+                        Login
+                    </div>
+                </a>
             </div>
         </footer>
     );

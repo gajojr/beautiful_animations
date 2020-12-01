@@ -42,4 +42,8 @@ router.put('/change-password', async(req, res) => {
 });
 
 
-module.exports = router;
+// We need to export User model too, because we are using it in the register-page.js
+module.exports = {
+    router,
+    User
+};
