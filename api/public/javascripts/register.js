@@ -38,6 +38,7 @@ registerUser.addEventListener('click', (e) => {
                 } else {
                     document.write('<h1>Succesfully registered!</h1><button id="register-success">Go to profile</button>');
                     sessionStorage.setItem('loged_in', 'user');
+                    sessionStorage.setItem('username', username.value);
                     document.getElementById('register-success').addEventListener('click', () => {
                         location.href = "/user-page";
                     });

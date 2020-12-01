@@ -21,6 +21,32 @@ img {
     align-self: center;
 }
 
+.naslov-link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.animation-link-header {
+    background-color: #DEB3AD;
+    padding: 5px;
+    border-radius: 5px;
+    width: 30px;
+    height: 20px;
+}
+
+.animation-link {
+    text-decoration: none;
+    color: #000;
+}
+
+#like-btn {
+    width: 28px;
+}
+
+#like-btn:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 540px) {
     .block {
         width: 35%;
@@ -63,22 +89,4 @@ img {
         min-width: 78%;
         height: auto;
     }
-}
-
-.naslov-link {
-    display: flex;
-    justify-content: space-between;
-}
-
-.animation-link-header {
-    background-color: #DEB3AD;
-    padding: 5px;
-    border-radius: 5px;
-    width: 30px;
-    height: 20px;
-}
-
-.animation-link {
-    text-decoration: none;
-    color: #000;
 }

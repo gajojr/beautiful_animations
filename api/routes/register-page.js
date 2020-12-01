@@ -21,7 +21,8 @@ router.post('/', async(req, res) => {
             const newUser = new User({
                 username: req.body.username,
                 password: req.body.password,
-                role: "user"
+                role: "user",
+                likedAnimations: []
             });
 
             newUser.save(function(err, user) {

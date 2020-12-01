@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     password: String,
-    role: String
+    role: String,
+    likedAnimations: Array
 });
 
 const User = mongoose.model('users', userSchema);
@@ -29,9 +30,6 @@ router.post('/', async(req, res) => {
 });
 
 router.put('/change-password', async(req, res) => {
-    console.log(req.body.username);
-    console.log(req.body.oldPassword);
-    console.log(req.body.newPassword);
     await User.findOneAndUpdate({
         username: req.body.username,
         password: req.body.oldPassword

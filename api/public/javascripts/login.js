@@ -32,9 +32,11 @@ logInBtn.addEventListener('click', (e) => {
             .then((response) => {
                 if (response.status === 200) {
                     sessionStorage.setItem('loged_in', 'admin');
+                    sessionStorage.setItem('username', username.value);
                     location.href = '/admin-page';
                 } else if (response.status === 201) {
                     sessionStorage.setItem('loged_in', 'user');
+                    sessionStorage.setItem('username', username.value);
                     location.href = '/user-page';
                 } else {
                     document.write('<h1>Wrong password or username, please try again!</h1><button id="login-failed">OK</button>');
