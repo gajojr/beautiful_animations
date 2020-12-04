@@ -39,11 +39,11 @@ img {
     color: #000;
 }
 
-#like-btn {
-    width: 28px;
+.like-btn {
+    margin-top: 10px;
 }
 
-#like-btn:hover {
+.like-btn:hover {
     cursor: pointer;
 }
 

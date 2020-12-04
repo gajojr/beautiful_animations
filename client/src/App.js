@@ -11,7 +11,7 @@ async function getFromDB(url) {
   const animationsList = json.animations;
 
   return animationsList;
-};
+}
 
 function App() {
   return (

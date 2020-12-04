@@ -17,6 +17,7 @@
         "mongodb": "^3.6.2",
         "mongoose": "^5.10.10",
         "morgan": "~1.9.1",
+        "node-sessionstorage": "^1.0.0",
         "serve-favicon": "^2.5.0"
     },
     "devDependencies": {
