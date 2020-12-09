@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const mongoose = require('mongoose');
 
-const storage = require('node-sessionstorage')
+const storage = require('node-sessionstorage');
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -38,14 +38,19 @@ router.put('/change-password', async(req, res) => {
         username: req.body.username,
         password: req.body.oldPassword
     }, {
-        username: req.body.username,
         password: req.body.newPassword
     });
 });
 
 router.get('/send-username-to-frontend', async(req, res) => {
     if (storage.getItem('username')) {
-        await res.send({ username: storage.getItem('username') });
+        //await res.send({ username: storage.getItem('username') });
+
+        await User.findOne({ username: storage.getItem('username') }, (err, result) => {
+            if (result) {
+                res.send({ username: result.username, likedAnimations: result.likedAnimations });
+            }
+        });
     }
 });
 

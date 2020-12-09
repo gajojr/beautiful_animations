@@ -17,6 +17,8 @@ form {
 }
 
 .register {
+    display: flex;
+    align-items: center;
     width: 60vw;
     max-width: 800px;
     padding: 20px;

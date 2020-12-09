@@ -17,15 +17,24 @@ router.get('/', async(req, res) => {
 });
 
 router.put('/', async(req, res) => {
-    console.log("Username:", req.body.username);
-    console.log("Password:", req.body.link);
-    // await User.findOneAndUpdate({
-    //     username: req.body.username
-    // }, {
-    //     likedAnimations: User.findOne({ username: req.query.username }, (err, result) => {
-    //         return result.likedAnimations.push(req.body.link)
-    //     })
-    // });
+    console.log("username:", req.body.username);
+    console.log("link:", req.body.link);
+
+    // if animation is already liked, then dislike it
+    // if it's not liked, then store it in db
+    const user = await User.findOne({ username: req.body.username });
+    if (user.likedAnimations.indexOf(req.body.link) === -1) {
+        user.likedAnimations.push(req.body.link);
+    } else {
+        user.likedAnimations = arrayRemove(user.likedAnimations, user.likedAnimations[user.likedAnimations.indexOf(req.body.link)]);
+    }
+    user.save();
 });
+
+function arrayRemove(arr, value) {
+    return arr.filter((item) => {
+        return item != value;
+    });
+}
 
 module.exports = router;

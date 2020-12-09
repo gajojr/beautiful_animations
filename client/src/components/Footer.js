@@ -9,7 +9,7 @@ const Footer = () => {
                 <a href="mailto:andrijagajicbusiness@gmail.com"><img src='/images/social_media/email.png' alt="email logo" className="logo"/></a>
                 <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
             </div>
-            <div className="login-register">
+            {!sessionStorage.getItem('username') ? <div className="login-register">
                 <a href="http://localhost:8080/register">
                     <div className="adminButton">
                         Register
@@ -20,7 +20,14 @@ const Footer = () => {
                         Login
                     </div>
                 </a>
-            </div>
+            </div> : 
+            <div className="login-register">
+                <a href="http://localhost:8080/user-page">
+                    <div className="adminButton">
+                        My profile
+                    </div>
+                </a>
+            </div>}
         </footer>
     );
 }

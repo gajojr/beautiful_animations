@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const mongoose = require('mongoose');
 const User = require('./login').User;
+const storage = require('node-sessionstorage');
 
 mongoose.connect('mongodb://localhost:27017/animationsdb');
 
@@ -17,6 +18,8 @@ router.post('/', async(req, res) => {
         } else {
             res.sendStatus(201);
             console.log('Nema ovakav');
+
+            storage.setItem('username', req.body.username);
 
             const newUser = new User({
                 username: req.body.username,

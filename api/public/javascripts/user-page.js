@@ -3,15 +3,19 @@ document.getElementById('user-name').innerText = username;
 
 const listToStoreAnimation = document.querySelector('.animation-list');
 
-const animationList = getFromDB(`/animation-list/?username=${username}`).then(data => {
+getFromDB(`/animation-list/?username=${username}`).then(data => {
     // li
     // -> a href={animationLink}
     //    -> text that is substring of link
+    console.log("Primljena data:", data);
     data.map(animationLink => {
         const liNode = document.createElement("li");
         const aNode = document.createElement("a");
         const textNode = document.createTextNode(animationLink.substring(animationLink.lastIndexOf('/'), animationLink.lastIndexOf('.')));
-        aNode.href = animationLink;
+        aNode.href = 'http://localhost:3000' + animationLink;
+        if (animationLink.includes('testAPI')) {
+            aNode.href = 'http://localhost:8080/testAPI';
+        }
         aNode.appendChild(textNode);
         liNode.appendChild(aNode);
         listToStoreAnimation.appendChild(liNode);
