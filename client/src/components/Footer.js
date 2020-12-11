@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import '../styles/footer.css';
 
 const Footer = () => {
+    const [username, setUsername] = useState(sessionStorage.getItem('username'));
+
+    useEffect(() => {
+        sessionStorage.setItem('show_profile_button', true);
+    }, [username]);
+
     return (
         <footer>
             <div className="linkovi">
@@ -9,7 +15,7 @@ const Footer = () => {
                 <a href="mailto:andrijagajicbusiness@gmail.com"><img src='/images/social_media/email.png' alt="email logo" className="logo"/></a>
                 <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
             </div>
-            {!sessionStorage.getItem('username') ? <div className="login-register">
+            {!sessionStorage.getItem('show_profile_button') ? <div className="login-register">
                 <a href="http://localhost:8080/register">
                     <div className="adminButton">
                         Register

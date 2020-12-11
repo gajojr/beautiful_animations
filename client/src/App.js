@@ -21,7 +21,7 @@ function App() {
         // db location
         snippets={getFromDB("http://localhost:8080/animations")}
       />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

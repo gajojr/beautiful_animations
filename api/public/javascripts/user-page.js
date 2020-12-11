@@ -7,11 +7,10 @@ getFromDB(`/animation-list/?username=${username}`).then(data => {
     // li
     // -> a href={animationLink}
     //    -> text that is substring of link
-    console.log("Primljena data:", data);
     data.map(animationLink => {
         const liNode = document.createElement("li");
         const aNode = document.createElement("a");
-        const textNode = document.createTextNode(animationLink.substring(animationLink.lastIndexOf('/'), animationLink.lastIndexOf('.')));
+        const textNode = document.createTextNode(animationLink.substring(animationLink.lastIndexOf('/') + 1, animationLink.lastIndexOf('.')));
         aNode.href = 'http://localhost:3000' + animationLink;
         if (animationLink.includes('testAPI')) {
             aNode.href = 'http://localhost:8080/testAPI';

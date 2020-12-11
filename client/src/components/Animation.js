@@ -30,7 +30,7 @@ async function getLikedAnimations(username) {
 
 // eslint-disable-next-line react/prop-types
 const Animation = ({ name, gif, description, link }) => {
-    const [likedAnimations, setLikedAnimations] = useState(['empty']);
+    const [likedAnimations, setLikedAnimations] = useState([]);
 
     async function getUsernameAndAnimations(url) { 
         const res = await fetch(url); 
@@ -45,13 +45,15 @@ const Animation = ({ name, gif, description, link }) => {
     } 
 
     if(!sessionStorage.getItem('username')) {
-        getUsernameAndAnimations('http://localhost:8080/login/send-username-to-frontend').then(data => {
+        getUsernameAndAnimations('http://localhost:8080/login/send-data-to-frontend').then(data => {
             sessionStorage.setItem('username', data.username);
             setLikedAnimations(data.likedAnimations);
         });
+        console.log("Start animacije", likedAnimations);
     } 
+
     useEffect(() => {
-        getUsernameAndAnimations('http://localhost:8080/login/send-username-to-frontend').then(data => {
+        getUsernameAndAnimations('http://localhost:8080/login/send-data-to-frontend').then(data => {
             setLikedAnimations(data.likedAnimations);
         });
     }, []);

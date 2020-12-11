@@ -42,7 +42,7 @@ router.put('/change-password', async(req, res) => {
     });
 });
 
-router.get('/send-username-to-frontend', async(req, res) => {
+router.get('/send-data-to-frontend', async(req, res) => {
     if (storage.getItem('username')) {
         //await res.send({ username: storage.getItem('username') });
 

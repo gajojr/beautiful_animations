@@ -29,6 +29,8 @@ router.put('/', async(req, res) => {
         user.likedAnimations = arrayRemove(user.likedAnimations, user.likedAnimations[user.likedAnimations.indexOf(req.body.link)]);
     }
     user.save();
+
+    // res.send({ animationList: user.likedAnimations });
 });
 
 function arrayRemove(arr, value) {
