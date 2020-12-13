@@ -1,11 +1,17 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/footer.css';
 
 const Footer = () => {
-    const [username, setUsername] = useState(sessionStorage.getItem('username'));
+    // da bi se dugme promenilo mora da se refreshuje stranica
+    const [username, setUsername] = useState(false);
+    const [btn, updateBtn] = useState(false);
 
-    useEffect(() => {
-        sessionStorage.setItem('show_profile_button', true);
+    if(!username && sessionStorage.getItem('username')) {
+        setUsername(sessionStorage.getItem('username'));
+    }
+
+    useEffect(() => {   
+        updateBtn(true);
     }, [username]);
 
     return (
@@ -15,25 +21,28 @@ const Footer = () => {
                 <a href="mailto:andrijagajicbusiness@gmail.com"><img src='/images/social_media/email.png' alt="email logo" className="logo"/></a>
                 <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
             </div>
-            {!sessionStorage.getItem('show_profile_button') ? <div className="login-register">
-                <a href="http://localhost:8080/register">
-                    <div className="adminButton">
-                        Register
-                    </div>
-                </a>
-                <a href="http://localhost:8080/login">
-                    <div className="adminButton">
-                        Login
-                    </div>
-                </a>
-            </div> : 
-            <div className="login-register">
-                <a href="http://localhost:8080/user-page">
-                    <div className="adminButton">
-                        My profile
-                    </div>
-                </a>
-            </div>}
+            {!btn ? 
+                <div className="login-register">
+                    <a href="http://localhost:8080/register">
+                        <div className="adminButton">
+                            Register
+                        </div>
+                    </a>
+                    <a href="http://localhost:8080/login">
+                        <div className="adminButton">
+                            Login
+                        </div>
+                    </a>
+                </div> 
+                : 
+                <div className="login-register">
+                    <a href="http://localhost:8080/user-page">
+                        <div className="adminButton">
+                            My profile
+                        </div>
+                    </a>
+                </div>
+            }
         </footer>
     );
 }
