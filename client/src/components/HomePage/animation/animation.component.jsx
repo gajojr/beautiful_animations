@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/animation.css';
+import './animation.styles.css';
 
 import { IconContext } from 'react-icons';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';

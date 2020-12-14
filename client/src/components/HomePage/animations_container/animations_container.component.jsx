@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import '../styles/container.css';
+import './container.styles.css';
 
-import Animation from './Animation';
+import Animation from '../animation/animation.component';
 
 const AnimationsContainer = ({ snippets }) => {
     const [newSnippets, setNewSnippets] = useState([]);

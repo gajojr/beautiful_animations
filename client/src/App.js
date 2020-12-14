@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-import HeaderComponent from './components/Header';
-import AnimationsContainer from './components/AnimationsContainer';
-import Footer from './components/Footer';
+import HeaderComponent from '../src/components/HomePage/header/header.component';
+import AnimationsContainer from '../src/components/HomePage/animations_container/animations_container.component';
+import Footer from '../src/components/HomePage/footer/footer.component';
 
 async function getFromDB(url) { 
   const res = await fetch(url); 

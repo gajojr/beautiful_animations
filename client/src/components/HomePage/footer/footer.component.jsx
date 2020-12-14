@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/footer.css';
+import React, { useState } from 'react';
+import './footer.styles.css';
 
 const Footer = () => {
     // to turn register/login button to my profile button I must refresh
