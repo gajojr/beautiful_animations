@@ -1,0 +1,22 @@
+.register {
+  background: gray;
+  align-self: center;
+  padding: 2rem;
+  height: 50vh;
+  width: 50vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.item {
+  width: 200px;
+  height: 30px;
+  margin: 5px;
+}

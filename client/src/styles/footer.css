@@ -1,78 +1,76 @@
 footer {
-    text-align: left;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    align-self: center;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: space-between;
-    background-color: rgb(236, 137, 7);
-    width: 60%;
-    min-width: 320px;
+  text-align: left;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-self: center;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-between;
+  background-color: rgb(236, 137, 7);
 }
 
 .linkovi {
-    background-color: burlywood;
-    display: flex;
-    padding: 5px;
-    border-radius: 7px;
+  background-color: burlywood;
+  display: flex;
+  padding: 5px;
+  border-radius: 7px;
 }
 
 .logo {
-    margin: 0 10px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  margin: 0 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 .login-register {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.login-register>a {
-    text-decoration: none;
-    color: rgb(29, 27, 27);
-    font-weight: bold;
+.login-register > a {
+  text-decoration: none;
+  color: rgb(29, 27, 27);
+  font-weight: bold;
 }
 
 .adminButton {
-    cursor: pointer;
-    background-color: rgb(231, 199, 95);
-    box-shadow: 0 0.3rem rgba(255, 255, 255, 0.65);
-    padding: 5px;
-    border-radius: 7px;
-    margin-right: 5px;
-    transition-duration: .6s;
+  cursor: pointer;
+  background-color: rgb(231, 199, 95);
+  box-shadow: 0 0.3rem rgba(255, 255, 255, 0.65);
+  padding: 5px;
+  border-radius: 7px;
+  margin-right: 5px;
+  transition-duration: 0.6s;
 }
 
 .adminButton:hover {
-    filter: brightness(115%);
+  filter: brightness(115%);
 }
 
 .adminButton:active {
-    transform: translate(0, 0.35rem);
-    box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+  transform: translate(0, 0.35rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
 
 @media only screen and (max-width: 321px) {
-    footer {
-        min-width: 90%;
-        padding: 10px;
-        justify-content: center;
-    }
-    .linkovi {
-        width: 95%;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-    .adminButton {
-        text-align: center;
-        width: 90%;
-    }
-    .login-register>a {
-        margin-right: 10px;
-    }
+  footer {
+    min-width: 90%;
+    padding: 10px;
+    justify-content: center;
+  }
+  .linkovi {
+    width: 95%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .adminButton {
+    text-align: center;
+    width: 90%;
+  }
+  .login-register > a {
+    margin-right: 10px;
+  }
 }

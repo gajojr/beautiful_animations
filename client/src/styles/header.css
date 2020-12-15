@@ -1,13 +1,14 @@
 .intro {
-    text-align: left;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    flex: 1;
-    background-color: rgb(236, 137, 7);
-    max-width: 570px;
-    height: 100%;
+  margin: auto;
+  text-align: left;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  flex: 1;
+  background-color: rgb(236, 137, 7);
+  max-width: 570px;
+  height: 100%;
 }
