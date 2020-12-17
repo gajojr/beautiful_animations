@@ -33,30 +33,9 @@ const Animation = ({ name, gif, description, link }) => {
     // state se updatuje, ali useState radi asinhrono pa nailazimo na problem gde nece da se updatuje dok se ne refreshuje stranica
     const [likedAnimations, setLikedAnimations] = useState([]);
 
-    async function getUsernameAndAnimations(url) { 
-        const res = await fetch(url); 
-        const json = await res.json();
-        const username = json.username;
-        const likedAnimations = json.likedAnimations;
-
-        return {
-            username,
-            likedAnimations
-        };
-    } 
-
-    if(!sessionStorage.getItem('username')) {
-        getUsernameAndAnimations('http://localhost:8080/login/send-data-to-frontend').then(data => {
-            sessionStorage.setItem('username', data.username);
-            setLikedAnimations(data.likedAnimations);
-        });
-        // daje prazan niz cak i kad korisnik ima lajkovane animacije
-        console.log("Start animacije", likedAnimations);
-    } 
-
     useEffect(() => {
-        getUsernameAndAnimations('http://localhost:8080/login/send-data-to-frontend').then(data => {
-            setLikedAnimations(data.likedAnimations);
+        getLikedAnimations(sessionStorage.getItem('username')).then(likedAnimations => {
+            setLikedAnimations(likedAnimations);
         });
     }, []);
 

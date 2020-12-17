@@ -32,7 +32,7 @@ const RegisterPage = () => {
 
     const { register, handleSubmit, errors } = useForm();
 
-    const onSubmit = data => {
+    const registerUser = data => {
         console.log(data);
         if(data.password !== data.confirm_password) {
             alert("Password are not the same");
@@ -50,12 +50,12 @@ const RegisterPage = () => {
             })
             .then((response) => {
                 alert("USAO SAM JAKO");
-                if (response.status === 400) {
+                if (response.status === 202) {                             
                     window.location.href = '/register-failed';
                 } else {
-                    window.location.href = "/user-page";
                     sessionStorage.setItem('loged_in', 'user');
                     sessionStorage.setItem('username', data.username);
+                    window.location.href = "/user-page";             
                 }
             });
             console.log('zavrsena registracija');
@@ -66,7 +66,7 @@ const RegisterPage = () => {
         <Styles.Wrapper>
             <Styles.Register>
                 <Styles.MainHeader>Registration page for new users</Styles.MainHeader>
-                <Styles.Form onSubmit={handleSubmit(onSubmit)}>
+                <Styles.Form onSubmit={handleSubmit(registerUser)}>
                     <Styles.Label htmlFor="username">Enter username:</Styles.Label>
                     <Styles.Input type="text" id="username" name="username" ref={register({required: "USERNAME REQUIRED"})}/>
                     {
