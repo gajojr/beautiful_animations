@@ -1,28 +1,28 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import HeaderComponent from '../src/components/HomePage/header/header.component';
-import AnimationsContainer from '../src/components/HomePage/animations_container/animations_container.component';
-import Footer from '../src/components/HomePage/footer/footer.component';
+import HomePage from './components/HomePage/HomePage.component';
+import LoginPage from '../src/components/LoginPage/LoginPage.component';
+import RegisterPage from '../src/components/RegisterPage/RegisterPage.component';
 
-async function getFromDB(url) { 
-  const res = await fetch(url); 
-  const json = await res.json();
-  const animationsList = json.animations;
+// import './App.css';
 
-  return animationsList;
-}
+import LoginFailedComponent from '../src/components/LoginFailed/LoginFailed.component';
+import RegisterFailedComponent from '../src/components/RegisterFailed/RegisterFailed.component';
 
 function App() {
   return (
-    <div className="App">
-      <HeaderComponent/>
-      <AnimationsContainer 
-        // db location
-        snippets={getFromDB("http://localhost:8080/animations")}
-      />
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/" exact component={HomePage}/>
+          <Route path="/register" component={RegisterPage}/>
+          <Route path="/login" component={LoginPage}/>
+          <Route path="/register-failed" component={RegisterFailedComponent}/>
+          <Route path="/login-failed" component={LoginFailedComponent}/>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

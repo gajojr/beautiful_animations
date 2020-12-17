@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './animation.styles.css';
+import * as Styles from './animation.style';
 
 import { IconContext } from 'react-icons';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -61,31 +61,30 @@ const Animation = ({ name, gif, description, link }) => {
     }, []);
 
     return (
-        <div className='block'>
-            <div className='naslov-link'>
+        <Styles.Block>
+            <Styles.HeaderLink>
                 <h3>{name}</h3>
-                <span className='animation-link-header'>
-                    <a 
-                        href={link || 'https://www.google.rs/'} 
-                        className='animation-link'
+                <Styles.AnimationLinkHeader>
+                    <Styles.AnimationLink 
+                        href={link || 'https://www.google.rs/'}
                     >
                         Visit
-                    </a>
-                </span>
-            </div>  
-            <img src={gif} alt={name}/>
+                    </Styles.AnimationLink>
+                </Styles.AnimationLinkHeader>
+            </Styles.HeaderLink>  
+            <Styles.Img src={gif} alt={name}/>
             <div style={{
                     display: 'flex', 
                     flexDirection: 'row', 
                     justifyContent: 'space-between'
                 }}
             >
-                <p>{description}</p> 
+                <Styles.Description>{description}</Styles.Description> 
                 {sessionStorage.getItem('username') ?
                     <IconContext.Provider 
                         value={{ color: 'red', size: 34 }}
                     >
-                        <div className='like-btn' onClick={() => {
+                        <Styles.LikeBtn onClick={() => {
                             storeLikedAnimation(sessionStorage.getItem('username'), link);
                             getLikedAnimations(sessionStorage.getItem('username')).then(animations => {
                                 setLikedAnimations(animations);
@@ -94,10 +93,10 @@ const Animation = ({ name, gif, description, link }) => {
                             });
                         }}>
                             {likedAnimations.indexOf(link) !== -1 ? <AiFillHeart/> : <AiOutlineHeart/>}
-                        </div>
+                        </Styles.LikeBtn>
                     </IconContext.Provider> : null}
             </div>     
-        </div>
+        </Styles.Block>
     );
 }
 

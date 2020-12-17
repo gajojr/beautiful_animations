@@ -1,13 +1,13 @@
 import React from 'react';
-import './header.styles.css';
+import Intro from './header.style';
 
 const HeaderComponent = () => {
     return (
-        <header className="intro">
+        <Intro>
             <h1 style={{ alignSelf: 'center' }}>Beautiful Animations</h1>
             <p>This website is designed to demonstrate power of css animations, and hopefuly help you made your own animations</p>
-        </header>
+        </Intro>
     )
 };
 
-export default HeaderComponent;
+export default HeaderComponent

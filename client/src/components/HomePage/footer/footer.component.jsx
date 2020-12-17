@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './footer.styles.css';
+import * as Styles from './footer.styles';
 
 const Footer = () => {
     // to turn register/login button to my profile button I must refresh
@@ -10,35 +10,35 @@ const Footer = () => {
     }
 
     return (
-        <footer>
-            <div className="linkovi">
-                <a href="https://www.instagram.com/webcode.rs/?hl=sr"><img src='/images/social_media/ig.png' alt="instagram logo" className="logo"/></a>
-                <a href="mailto:andrijagajicbusiness@gmail.com"><img src='/images/social_media/email.png' alt="email logo" className="logo"/></a>
-                <a href="https://github.com/gajojr"><img src='/images/social_media/github.png' alt="github logo" className="logo"/></a>
-            </div>
+        <Styles.Footer>
+            <Styles.Links>
+                <a href="https://www.instagram.com/webcode.rs/?hl=sr"><Styles.Logo src='/images/social_media/ig.png' alt="instagram logo"/></a>
+                <a href="mailto:andrijagajicbusiness@gmail.com"><Styles.Logo src='/images/social_media/email.png' alt="email logo"/></a>
+                <a href="https://github.com/gajojr"><Styles.Logo src='/images/social_media/github.png' alt="github logo"/></a>
+            </Styles.Links>
             {!username ? 
-                <div className="login-register">
-                    <a href="http://localhost:8080/register">
-                        <div className="adminButton">
+                <Styles.LoginRegister>
+                    <Styles.StyledLink to="/register">
+                        <Styles.ControlButton>
                             Register
-                        </div>
-                    </a>
-                    <a href="http://localhost:8080/login">
-                        <div className="adminButton">
+                        </Styles.ControlButton>
+                    </Styles.StyledLink>
+                    <Styles.StyledLink to="/login">
+                        <Styles.ControlButton>
                             Login
-                        </div>
-                    </a>
-                </div> 
+                        </Styles.ControlButton>
+                    </Styles.StyledLink>
+                </Styles.LoginRegister> 
                 : 
-                <div className="login-register">
-                    <a href="http://localhost:8080/user-page">
-                        <div className="adminButton">
+                <Styles.LoginRegister>
+                    <Styles.StyledLink to="/user-page">
+                        <Styles.ControlButton>
                             My profile
-                        </div>
-                    </a>
-                </div>
+                        </Styles.ControlButton>
+                    </Styles.StyledLink>
+                </Styles.LoginRegister>
             }
-        </footer>
+        </Styles.Footer>
     );
 }
 

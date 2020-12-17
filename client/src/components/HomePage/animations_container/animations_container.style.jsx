@@ -1,4 +1,6 @@
-.container {
+import styled from 'styled-components';
+
+const Container = styled.main `
     text-align: left;
     margin: 20px;
     padding: 10px;
@@ -11,23 +13,19 @@
     background-color: rgba(255, 145, 0, 0.55);
     width: 60%;
     min-width: 320px;
-}
 
-@media only screen and (max-width: 768px) {
-    .container {
+    @media (max-width: 768px) {
         width: 80%;
     }
-}
 
-@media only screen and (max-width: 540px) {
-    .container {
+    @media (max-width: 540px) {
         width: 95%;
     }
-}
 
-@media only screen and (max-width: 321px) {
-    .container {
+    @media (max-width: 321px) {
         width: 90%;
         min-width: 100px;
     }
-}
+`;
+
+export default Container;

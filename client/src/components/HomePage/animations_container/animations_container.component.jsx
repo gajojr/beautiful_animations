@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import './container.styles.css';
+import Container from './animations_container.style';
 
 import Animation from '../animation/animation.component';
 
@@ -22,9 +22,9 @@ const AnimationsContainer = ({ snippets }) => {
     });
 
     return (
-        <div className="container">
+        <Container>
             {animationComponent}
-        </div>
+        </Container>
     );
 }
 
