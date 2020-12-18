@@ -16,7 +16,7 @@ const UserPage = () => {
     const [animationList, setAnimationList] = useState([]);
 
     useEffect(() => {
-        getFromDB(`http://localhost:8080/animation-list/?username=${username}`).then(data => {
+        getFromDB(`http://localhost:8080/animation-list/?username=${sessionStorage.getItem('username')}`).then(data => {
             setAnimationList(data);
         })
     }, []);
@@ -28,9 +28,9 @@ const UserPage = () => {
             <Styles.Ul>
                 {/* fetched animations links */}
                 {
-                    animationList.map(animationLink => {
+                    animationList.map((animationLink, index) => {
                         return (
-                            <Styles.Li key={Math.random()}>
+                            <Styles.Li key={index}>
                                 <a href={`${animationLink}`}  style={{color: '#000'}}>{animationLink.substring(animationLink.lastIndexOf('/') + 1, animationLink.lastIndexOf('.'))}</a>
                             </Styles.Li>
                         )

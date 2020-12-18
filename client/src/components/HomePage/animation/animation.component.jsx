@@ -44,9 +44,7 @@ const Animation = ({ name, gif, description, link }) => {
             <Styles.HeaderLink>
                 <h3>{name}</h3>
                 <Styles.AnimationLinkHeader>
-                    <Styles.AnimationLink 
-                        href={link || 'https://www.google.rs/'}
-                    >
+                    <Styles.AnimationLink href={link || 'https://www.google.rs/'}>
                         Visit
                     </Styles.AnimationLink>
                 </Styles.AnimationLinkHeader>
@@ -60,9 +58,7 @@ const Animation = ({ name, gif, description, link }) => {
             >
                 <Styles.Description>{description}</Styles.Description> 
                 {sessionStorage.getItem('username') ?
-                    <IconContext.Provider 
-                        value={{ color: 'red', size: 34 }}
-                    >
+                    <IconContext.Provider value={{ color: 'red', size: 34 }}>
                         <Styles.LikeBtn onClick={() => {
                             storeLikedAnimation(sessionStorage.getItem('username'), link);
                             getLikedAnimations(sessionStorage.getItem('username')).then(animations => {
