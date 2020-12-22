@@ -3,23 +3,7 @@ import '../../components/InputError/error.css';
 
 import * as Styles from './RegisterPage.style';
 
-import { useForm } from 'react-hook-form';
-
-function shakingInputAnimation(inputField) {
-    if (!inputField.value) {
-        // adds red border around input field
-        inputField.style.border = `3px solid red`;
-
-        // class that defines animation
-        inputField.classList.add('error');
-
-        // removes class and red color on the end of the animation
-        setTimeout(() => {
-            inputField.classList.remove('error');
-            inputField.style.border = '1px solid #000';
-        }, 1300);
-    }
-};
+import {shakingInputAnimation} from '../AdminPage/functionality';
 
 const RegisterPage = () => {
     const check_user_login = sessionStorage.getItem('loged_in');
@@ -28,64 +12,61 @@ const RegisterPage = () => {
     } else if (check_user_login === 'admin') {
         window.location.href = '/admin-page';
     }
+
     document.title = "Register Page";
 
-    const { register, handleSubmit, errors } = useForm();
-
-    const registerUser = data => {
-        console.log(data);
-        if(data.password !== data.confirm_password) {
-            alert("Password are not the same");
-        } else {
-            fetch('http://localhost:8080/register', {        
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: data.username,
-                    password: data.password
-                })
-            })
-            .then((response) => {
-                alert("USAO SAM JAKO");
-                if (response.status === 202) {                             
-                    window.location.href = '/register-failed';
-                } else {
-                    sessionStorage.setItem('loged_in', 'user');
-                    sessionStorage.setItem('username', data.username);
-                    window.location.href = "/user-page";             
-                }
-            });
-            console.log('zavrsena registracija');
+    const registerUser = (username, password, confirmPassword) => {
+        if(!username.value, !password.value, !confirmPassword.value) {
+            shakingInputAnimation([username, password, confirmPassword]);
+            setTimeout(() => {
+                alert('You must fill in all fields');
+                window.location.reload();
+            }, 800);
+            return;
         }
+        if(password.value !== confirmPassword.value) {
+            alert("Password are not the same");
+            window.location.reload();
+            return;
+        } 
+        fetch('http://localhost:8080/register', {        
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username.value,
+                password: password.value
+            })
+        })
+        .then((response) => {
+            if (response.status === 202) {                             
+                window.location.href = '/register-failed';
+            } else {
+                sessionStorage.setItem('loged_in', 'user');
+                sessionStorage.setItem('username', username.value);
+                window.location.href = "/user-page";             
+            }
+        });
     }
 
     return (
         <Styles.Wrapper>
             <Styles.Register>
                 <Styles.MainHeader>Registration page for new users</Styles.MainHeader>
-                <Styles.Form onSubmit={handleSubmit(registerUser)}>
+                <Styles.Form>
                     <Styles.Label htmlFor="username">Enter username:</Styles.Label>
-                    <Styles.Input type="text" id="username" name="username" ref={register({required: "USERNAME REQUIRED"})}/>
-                    {
-                        errors.username && 
-                        shakingInputAnimation(document.getElementById('username'))
-                    }
+                    <Styles.Input type="text" id="username" name="username" required/>
                     <Styles.Label htmlFor="password">Enter password:</Styles.Label>
-                    <Styles.Input type="password" id="password" name="password" ref={register({required: "PASSWORD REQUIRED"})}/>
-                    {
-                        errors.password && 
-                        shakingInputAnimation(document.getElementById('password'))
-                    }
+                    <Styles.Input type="password" id="password" name="password" required/>
                     <Styles.Label htmlFor="confirm_password">Confirm password:</Styles.Label>
-                    <Styles.Input type="password" id="confirm_password" name="confirm_password" ref={register({required: "CONFIRM REQUIRED"})}/>
-                    {
-                        errors.confirm_password && 
-                        shakingInputAnimation(document.getElementById('confirm_password'))
-                    }
-                    <Styles.Submit type="submit" id="submit" value="Register"/>
+                    <Styles.Input type="password" id="confirmPassword" name="confirm_password" required/>
+                    <Styles.Submit type="button" onClick={() => registerUser(
+                        document.getElementById('username'),
+                        document.getElementById('password'),
+                        document.getElementById('confirmPassword')
+                    )}>Register</Styles.Submit>
                 </Styles.Form>
             </Styles.Register>
         </Styles.Wrapper>

@@ -54,27 +54,7 @@ export const Input = styled.input `
     }
 `;
 
-export const Submit = styled.input `
-    appearance: none;
-    outline: 0;
-    background-color: white;
-    border: 0;
-    padding: 10px 15px;
-    color: #53e3a6;
-    border-radius: 3px;
-    width: 282px;
-    cursor: pointer;
-    font-size: 18px;
-    transition-duration: 0.25s;
-    height: auto;
-
-    &:hover {
-        background-color: #afb7be;
-        color: #000;
-    }
-`;
-
-export const SubmitButton = styled.input `
+export const Submit = styled.button `
     appearance: none;
     outline: 0;
     background-color: white;

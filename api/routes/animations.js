@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-mongoose.set('useFindAndModify', false);
-
 const animationSchema = new mongoose.Schema({
     name: String,
-    gifAdrress: String,
+    gifAddress: String,
     description: String,
     linkToAnimationPage: String
 });
@@ -26,7 +24,7 @@ router.get('/', async(req, res) => {
 router.post('/', async(req, res) => {
     const animation = await new Animation({
         name: req.body.name,
-        gifAdrress: req.body.gifAdrress,
+        gifAddress: req.body.gifAddress,
         description: req.body.description,
         linkToAnimationPage: req.body.linkToPage
     });
@@ -42,7 +40,7 @@ router.put('/', async(req, res) => {
     }, {
         name: req.body.name,
         description: req.body.description,
-        gifAdrress: req.body.gifAdrress,
+        gifAddress: req.body.gifAddress,
         linkToAnimationPage: req.body.linkToUpdate
     });
 });
@@ -58,7 +56,7 @@ router.delete('/', async(req, res) => {
 const connect = () => {
     /*const animation = new Animation({
         name: "Neka animacija",
-        gifAdrress: "/images/animation_gifs/placeholder.jfif",
+        gifAddress: "/images/animation_gifs/placeholder.jfif",
         description: "Ide gas",
         linkToAnimationPage: "http://localhost:8080/testAPI"
     });

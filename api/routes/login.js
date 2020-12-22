@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -34,8 +33,6 @@ userSchema.pre('save', async function(next) {
 
 const User = mongoose.model('users', userSchema);
 
-router.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'login', 'login.html')));
-
 router.post('/', async(req, res) => {
     await User.findOne({ username: req.body.username }, async(err, result) => {
         if (result) {
@@ -66,11 +63,22 @@ router.post('/', async(req, res) => {
 });
 
 router.put('/change-password', async(req, res) => {
-    await User.findOneAndUpdate({
-        username: req.body.username,
-        password: req.body.oldPassword
-    }, {
-        password: req.body.newPassword
+    let match = null;
+    await User.findOne({ username: req.body.username }, async(err, result) => {
+        if (result) {
+            console.log("ima rezlutat");
+            match = await bcrypt.compare(req.body.oldPassword, result.password);
+            if (match) {
+                console.log("ima match");
+                const salt = await bcrypt.genSalt(10);
+                const hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
+                await User.findOneAndUpdate({
+                    username: req.body.username
+                }, {
+                    password: hashedPassword
+                });
+            }
+        }
     });
 });
 

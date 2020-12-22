@@ -46,7 +46,7 @@ export const Input = styled.input `
     height: 30px;
 `;
 
-export const Submit = styled.input `
+export const Submit = styled.button `
     width: 20%;
     margin-top: 10px;
     align-self: center;

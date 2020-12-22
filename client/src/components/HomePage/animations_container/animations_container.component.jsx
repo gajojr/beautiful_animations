@@ -14,7 +14,7 @@ const AnimationsContainer = ({ snippets }) => {
             <Animation 
                 key={animation._id} 
                 name={animation.name} 
-                gif={animation.gifAdrress} 
+                gif={animation.gifAddress} 
                 description={animation.description}
                 link={animation.linkToAnimationPage}
             />
