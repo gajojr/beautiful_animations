@@ -12,9 +12,7 @@ const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const animationsRouter = require('./routes/animations');
 const loginRouter = require('./routes/login').router;
-const adminPageRouter = require('./routes/admin-page');
 const registerPage = require('./routes/register-page');
-const userPage = require('./routes/user-page');
 const animationList = require('./routes/animation-list');
 
 const app = express();
@@ -37,8 +35,6 @@ app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/animations', animationsRouter);
 app.use('/login', loginRouter);
-app.use('/admin-page', adminPageRouter);
-app.use('/user-page', userPage);
 app.use('/register', registerPage);
 app.use('/animation-list', animationList);
 

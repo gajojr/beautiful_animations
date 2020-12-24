@@ -16,7 +16,7 @@ const RegisterPage = () => {
     document.title = "Register Page";
 
     const registerUser = (username, password, confirmPassword) => {
-        if(!username.value, !password.value, !confirmPassword.value) {
+        if(!username.value || !password.value || !confirmPassword.value) {
             shakingInputAnimation([username, password, confirmPassword]);
             setTimeout(() => {
                 alert('You must fill in all fields');

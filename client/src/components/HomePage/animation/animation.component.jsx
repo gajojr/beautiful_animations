@@ -30,14 +30,15 @@ async function getLikedAnimations(username) {
 
 // eslint-disable-next-line react/prop-types
 const Animation = ({ name, gif, description, link }) => {
-    // state se updatuje, ali useState radi asinhrono pa nailazimo na problem gde nece da se updatuje dok se ne refreshuje stranica
     const [likedAnimations, setLikedAnimations] = useState([]);
+    const [change, setChange] = useState(false);
 
     useEffect(() => {
         getLikedAnimations(sessionStorage.getItem('username')).then(likedAnimations => {
             setLikedAnimations(likedAnimations);
         });
-    }, []);
+    }, [change]);
+
 
     return (
         <Styles.Block>
@@ -62,7 +63,7 @@ const Animation = ({ name, gif, description, link }) => {
                         <Styles.LikeBtn onClick={() => {
                             storeLikedAnimation(sessionStorage.getItem('username'), link);
                             getLikedAnimations(sessionStorage.getItem('username')).then(animations => {
-                                setLikedAnimations(animations);
+                                setChange(!change);
                                 console.log(animations);
                                 console.log("State:", likedAnimations);
                             });

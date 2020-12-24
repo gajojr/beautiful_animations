@@ -6,8 +6,6 @@ const User = require('./login').User;
 
 mongoose.connect('mongodb://localhost:27017/animationsdb');
 
-router.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'register-user', 'register.html')));
-
 router.post('/', async(req, res) => {
     console.log("USername mi je :", req.body.username);
     console.log("Sifra mi je :", req.body.password);
