@@ -31,7 +31,7 @@ const Footer = () => {
                 </Styles.LoginRegister> 
                 : 
                 <Styles.LoginRegister>
-                    <Styles.StyledLink to="/user-page">
+                    <Styles.StyledLink to={sessionStorage.getItem('loged_in') === 'user' ? "/user-page" : '/admin-page'}>
                         <Styles.ControlButton>
                             My profile
                         </Styles.ControlButton>

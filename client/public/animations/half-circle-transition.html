@@ -5,32 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Button smooth transition, made with html and css" />
-    <title>Animated Button</title>
+    <title>Circle effect hover</title>
     <link rel="stylesheet" href="./styles/style.css">
     <style>
-        .hover-btn {
-            margin-top: 150px;
+        .btn {
+            border: 2px solid tomato;
+            background: none;
+            color: tomato;
+            padding: 20px 40px;
+            font-size: 25px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .5s;
+            position: relative;
+            overflow: hidden;
+            max-width: 300px;
             align-self: center;
-            outline: none;
-            border-radius: 10px;
-            font-size: 1.25rem;
-            width: 150px;
-            height: 100px;
-            transition: linear 0.6s;
         }
         
-        .hover-btn:hover {
-            background-color: greenyellow;
-            transform: scale(1.2);
+        .btn:hover {
+            color: #fff;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: tomato;
+            z-index: -1;
+            border-radius: 50% 50% 0 0;
+            height: 0%;
+            transition: all .5s;
+        }
+        
+        .btn:hover:before {
+            height: 190%;
         }
     </style>
 </head>
 
 <body>
     <div class="centered">
-        <h1>This is button hover transition</h1>
-        <p class="animation-description">This makes button hovering smooth and beutiful</p>
-        <button type="button" class="hover-btn">Hover me!</button>
+        <h1>The circle change</h1>
+        <p class="animation-description">This button's grows as a circle on hover</p>
+        <button class="btn">Button</button>
         <div class="code">
             <div class="code-snippet">
                 <div class="header-copy">
@@ -45,10 +66,10 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Loader&lt;/title&gt;
+        &lt;title&gt;Circle effect hover&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;button type="button" class="hover-btn"&gt;Hover me!&lt;/button&gt;           
+        &lt;button class="btn"&gt;Button&lt;/button&gt;       
     &lt;/body&gt;
     &lt;/html&gt;
 
@@ -56,8 +77,7 @@
 
 
 
-
-    &lt;!-- Make shore you connect html with css and js --&gt;
+    &lt;!-- Make sure you connect html with css and js --&gt;
                         </code>
                     </pre>
                 </div>
@@ -70,21 +90,42 @@
                 <div class="align-left">
                     <pre>
                         <code>
-    .hover-btn {
-        margin-top: 150px;
+    .btn {
+        border: 2px solid tomato;
+        background: none;
+        color: tomato;
+        padding: 20px 40px;
+        font-size: 25px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all .5s;
+        position: relative;
+        overflow: hidden;
+        max-width: 300px;
         align-self: center;
-        outline: none;
-        border-radius: 10px;
-        font-size: 1.25rem;
-        width: 150px;
-        height: 100px;
-        transition: linear 0.6s;
     }
-                            
-    .hover-btn:hover {
-        background-color: greenyellow;
-        transform: scale(1.2);
-    }  
+    
+    .btn:hover {
+        color: #fff;
+    }
+    
+    .btn::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: tomato;
+        z-index: -1;
+        border-radius: 50% 50% 0 0;
+        height: 0%;
+        transition: all .5s;
+    }
+    
+    .btn:hover:before {
+        height: 190%;
+    }
                         </code>
                     </pre>
                 </div>

@@ -4,37 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Spinner loading animation. Using html and css." />
-    <title>Spinner</title>
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Left to Right fill Button</title>
     <link rel="stylesheet" href="./styles/style.css">
     <style>
-        .loader {
-            margin-top: 150px;
+        a {
+            text-decoration: none;
+            color: #351435;
+            font-family: sans-serif;
+            font-size: 45px;
+            border: 3px solid #351435;
+            padding: 40px 80px;
+            position: relative;
+            transition: all 1s;
+            overflow: hidden;
+            max-width: 300px;
             align-self: center;
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            animation: spin 2s linear infinite;
         }
         
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #351435;
+            z-index: -1;
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+        
+        a:hover:before {
+            transform: translateX(0);
+        }
+        
+        a:hover {
+            color: white;
         }
     </style>
 </head>
 
 <body>
     <div class="centered">
-        <h1>This is loader animation</h1>
-        <p class="animation-description">This will keep your users enteretained while they are waiting</p>
-        <div class="loader"></div>
+        <h1>This is button fill transition</h1>
+        <p class="animation-description">This makes button fill from left to right</p>
+        <a href="#">hover me</a>
         <div class="code">
             <div class="code-snippet">
                 <div class="header-copy">
@@ -49,13 +64,12 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Loader&lt;/title&gt;
+        &lt;title&gt;Left to right fill&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;div class="loader"&gt;&lt;/div&gt;               
+        &lt;a href="#"&gt;Hover me!&lt;/a&gt;           
     &lt;/body&gt;
     &lt;/html&gt;
-
 
 
 
@@ -73,26 +87,41 @@
                 </div>
                 <div class="align-left">
                     <pre>
-                        <code>
-    .loader {
-        margin-top: 30px;
+                        <code>   
+    a {
+        text-decoration: none;
+        color: #351435;
+        font-family: sans-serif;
+        font-size: 45px;
+        border: 3px solid #351435;
+        padding: 40px 80px;
+        position: relative;
+        transition: all 1s;
+        overflow: hidden;       
+        max-width: 300px;
         align-self: center;
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
     }
-                                    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }   
+    
+    a:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #351435;
+        z-index: -1;
+        transform: translateX(-100%);
+        transition: all 1s;
+    }
+    
+    a:hover:before {
+        transform: translateX(0);
+    }
+    
+    a:hover {
+        color: white;
+    } 
                         </code>
                     </pre>
                 </div>

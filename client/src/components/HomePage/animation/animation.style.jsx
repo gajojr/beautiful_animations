@@ -60,6 +60,7 @@ export const Img = styled.img `
 export const HeaderLink = styled.div `
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
 `;
 
@@ -77,7 +78,7 @@ export const AnimationLink = styled.a `
 `;
 
 export const Description = styled.p `
-    margin-top: 10px;
+    margin-top: 20px;
 `;
 
 export const LikeBtn = styled.div `

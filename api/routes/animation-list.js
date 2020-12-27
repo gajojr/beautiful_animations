@@ -3,8 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('./login').User;
 
-router.keepAlive = false;
-
 mongoose.connect('mongodb://localhost:27017/animationsdb');
 
 router.get('/', async(req, res) => {

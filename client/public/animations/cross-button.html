@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Cross growing button</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: #262626;
+            font-family: sans-serif;
+            font-size: 45px;
+            letter-spacing: 2px;
+            border: 3px solid #262626;
+            padding: 40px 80px;
+            position: relative;
+            transition: 1s;
+            overflow: hidden;
+            max-width: 300px;
+            align-self: center;
+        }
+        
+        a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #262626;
+            transition: 1s;
+            transform: rotateX(90deg);
+            /* very important */
+            z-index: -1;
+        }
+        
+        a:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #262626;
+            transition: 1s;
+            transform: rotateY(90deg);
+            /* very important */
+            z-index: -1;
+        }
+        
+        a:hover::before {
+            transform: rotateX(0deg);
+        }
+        
+        a:hover::after {
+            transform: rotateY(0deg);
+        }
+        
+        a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <h1>This is cross growing transition</h1>
+        <p class="animation-description">On hover button changes color in cross way</p>
+        <a href="#">Hover me!</a>
+        <div class="code">
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">HTML</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Cross grow button&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a href="#"&gt;Hover me!&lt;/a&gt;           
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+
+    &lt;!-- Make sure you connect html with css and js --&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">CSS</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    a {
+        text-decoration: none;
+        color: #262626;
+        font-family: sans-serif;
+        font-size: 45px;
+        letter-spacing: 2px;
+        border: 3px solid #262626;
+        padding: 40px 80px;
+        position: relative;
+        transition: 1s;
+        overflow: hidden;
+    }
+    
+    a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #262626;
+        transition: 1s;
+        transform: rotateX(90deg);
+        /* very important */
+        z-index: -1;
+    }
+    
+    a:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #262626;
+        transition: 1s;
+        transform: rotateY(90deg);
+        /* very important */
+        z-index: -1;
+    }
+    
+    a:hover::before {
+        transform: rotateX(0deg);
+    }
+    
+    a:hover::after {
+        transform: rotateY(0deg);
+    }
+    
+    a:hover {
+        color: #fff;
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">JAVASCRIPT</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+        NONE 
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./code/code.js"></script>
+</body>
+
+</html>

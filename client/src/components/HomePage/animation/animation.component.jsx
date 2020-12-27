@@ -34,9 +34,11 @@ const Animation = ({ name, gif, description, link }) => {
     const [change, setChange] = useState(false);
 
     useEffect(() => {
-        getLikedAnimations(sessionStorage.getItem('username')).then(likedAnimations => {
-            setLikedAnimations(likedAnimations);
-        });
+        if(sessionStorage.getItem('username')) {
+                getLikedAnimations(sessionStorage.getItem('username')).then(likedAnimations => {
+                setLikedAnimations(likedAnimations);
+            });
+        }
     }, [change]);
 
 
@@ -45,7 +47,7 @@ const Animation = ({ name, gif, description, link }) => {
             <Styles.HeaderLink>
                 <h3>{name}</h3>
                 <Styles.AnimationLinkHeader>
-                    <Styles.AnimationLink href={link || 'https://www.google.rs/'}>
+                    <Styles.AnimationLink href={link}>
                         Visit
                     </Styles.AnimationLink>
                 </Styles.AnimationLinkHeader>

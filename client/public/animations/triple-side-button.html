@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Triple side button</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        a {
+            padding: 20px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: #f1c40f;
+            color: #fff;
+            font-size: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            max-width: 300px;
+            align-self: center;
+        }
+        
+        a:before {
+            content: 'BUTTON';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2ce771;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotateX(270deg);
+            transform-origin: top;
+            transition: all .5s;
+        }
+        
+        a:after {
+            content: 'BUTTON';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotateX(270deg);
+            transform-origin: bottom;
+            transition: all .5s;
+            transition-delay: .25s;
+        }
+        
+        a:hover::before,
+        a:hover::after {
+            transform: rotateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <h1>Triple side button</h1>
+        <p class="animation-description">This button show triple background on hover</p>
+        <a href="#">Hover me!</a>
+        <div class="code">
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">HTML</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Triple side button&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a href="#"&gt;Hover me!&lt;/a&gt;           
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+
+    &lt;!-- Make sure you connect html with css and js --&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">CSS</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    a {
+        padding: 20px 40px;
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: #f1c40f;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 2px;
+        position: relative;
+        max-width: 300px;
+        align-self: center;
+    }
+    
+    a:before {
+        content: 'BUTTON';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2ce771;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotateX(270deg);
+        transform-origin: top;
+        transition: all .5s;
+    }
+    
+    a:after {
+        content: 'BUTTON';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotateX(270deg);
+        transform-origin: bottom;
+        transition: all .5s;
+        transition-delay: .25s;
+    }
+    
+    a:hover::before,
+    a:hover::after {
+        transform: rotateX(0);
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">JAVASCRIPT</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+        NONE 
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./code/code.js"></script>
+</body>
+
+</html>
