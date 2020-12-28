@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Shake button</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: #000;
+            font-family: sans-serif;
+            font-size: 40px;
+            border: 3px solid #000;
+            padding: 40px 80px;
+            transition: all .3s;
+            align-self: center;
+            max-width: 300px;
+        }
+        
+        a:hover {
+            border: 3px solid #F44336;
+            color: #F44336;
+            animation: shake .3s linear 1;
+        }
+        
+        @keyframes shake {
+            33% {
+                transform: rotate(10deg);
+            }
+            66% {
+                transform: rotate(-10deg);
+            }
+            100% {
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <h1>Shake button</h1>
+        <p class="animation-description">Shake button animation on hover</p>
+        <a href="">hover me</a>
+        <div class="code">
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">HTML</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Shake button&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a href=""&gt;hover me&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+
+    &lt;!-- Make sure you connect html with css and js --&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">CSS</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 40px;
+        border: 3px solid #fff;
+        padding: 40px 80px;
+        transition: all .3s;
+        align-self: center;
+        max-width: 300px;
+    }
+    
+    a:hover {
+        border: 3px solid #F44336;
+        color: #F44336;
+        animation: shake .3s linear 1;
+    }
+    
+    @keyframes shake {
+        33% {
+            transform: rotate(10deg);
+        }
+        66% {
+            transform: rotate(-10deg);
+        }
+        100% {
+            transform: rotate(10deg);
+        }
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">JAVASCRIPT</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+        NONE 
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./code/code.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Loader</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        .loading {
+            width: 150px;
+            height: 150px;
+            background-color: #000;
+            border-radius: 12px;
+            animation: loading 2s linear infinite;
+            align-self: center;
+        }
+        
+        @keyframes loading {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            50% {
+                transform: rotateX(0deg) rotateY(180deg);
+            }
+            100% {
+                transform: rotateX(180deg) rotateY(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <h1>Loader</h1>
+        <p class="animation-description">Loader animation</p>
+        <div class="loading"></div>
+        <div class="code">
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">HTML</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Loader&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="loading"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+
+    &lt;!-- Make sure you connect html with css and js --&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">CSS</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    .loading {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        border-radius: 12px;
+        animation: loading 2s linear infinite;
+    }
+    
+    @keyframes loading {
+        0% {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        50% {
+            transform: rotateX(0deg) rotateY(180deg);
+        }
+        100% {
+            transform: rotateX(180deg) rotateY(180deg);
+        }
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">JAVASCRIPT</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+        NONE 
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./code/code.js"></script>
+</body>
+
+</html>

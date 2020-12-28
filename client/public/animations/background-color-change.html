@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Color change</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        .MAIN {
+            font-size: 70px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #000;
+            animation: bg-change 10s infinite;
+            align-self: center;
+            max-width: 400px;
+        }
+        
+        @keyframes bg-change {
+            0% {
+                background-color: #272727;
+            }
+            20% {
+                background-color: blue;
+            }
+            40% {
+                background-color: tomato;
+            }
+            60% {
+                background-color: lightblue;
+            }
+            80% {
+                background-color: darkolivegreen;
+            }
+            100% {
+                background-color: #272727;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <h1>Color change</h1>
+        <p class="animation-description">Color change</p>
+        <h1 class="MAIN">changed </br>background color</h1>
+        <div class="code">
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">HTML</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Color change&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;changed  &lt;/br&gt;background color &lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+
+    &lt;!-- Make sure you connect html with css and js --&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">CSS</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    h1 {
+        font-size: 70px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #fff;
+        animation: bg-change 10s infinite;
+        align-self: center;
+        max-width: 400px;
+    }
+    
+    @keyframes bg-change {
+        0% {
+            background-color: #272727;
+        }
+        20% {
+            background-color: blue;
+        }
+        40% {
+            background-color: tomato;
+        }
+        60% {
+            background-color: lightblue;
+        }
+        80% {
+            background-color: darkolivegreen;
+        }
+        100% {
+            background-color: #272727;
+        }
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">JAVASCRIPT</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+        NONE 
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./code/code.js"></script>
+</body>
+
+</html>

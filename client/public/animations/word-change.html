@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Button smooth transition, made with html and css" />
+    <title>Word change</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        .MAIN {
+            color: red;
+            font-size: 50px;
+        }
+        
+        .change::before {
+            content: "TRANSITIONS";
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1B1464;
+            animation: word-switch 5s infinite;
+        }
+        
+        @keyframes word-switch {
+            0% {
+                content: 'transitions';
+            }
+            50% {
+                content: 'animations';
+            }
+            100% {
+                content: 'transforms';
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <h1>Word change</h1>
+        <p class="animation-description">Loader animation</p>
+        <h1 class="MAIN">I love CSS <span class="change"></span></h1>
+        <div class="code">
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">HTML</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Word change&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;I love CSS &lt;span&gt;&lt;/span&gt;&lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+
+    &lt;!-- Make sure you connect html with css and js --&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">CSS</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+    h1 {
+        color: red;
+        font-size: 50px;
+    }
+    
+    span::before {
+        content: "TRANSITIONS";
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #1B1464;
+        animation: word-switch 5s infinite;
+    }
+    
+    @keyframes word-switch {
+        0% {
+            content: 'transitions';
+        }
+        50% {
+            content: 'animations';
+        }
+        100% {
+            content: 'transforms';
+        }
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="code-snippet">
+                <div class="header-copy">
+                    <span class="code-header">JAVASCRIPT</span>
+                    <span class="copy-button">COPY</span>
+                </div>
+                <div class="align-left">
+                    <pre>
+                        <code>
+        NONE 
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./code/code.js"></script>
+</body>
+
+</html>
