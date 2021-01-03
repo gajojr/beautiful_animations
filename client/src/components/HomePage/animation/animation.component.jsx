@@ -6,7 +6,8 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 const storeLikedAnimation = (username, link) => {
     (async() => {
-        await fetch('http://localhost:8080/animation-list', {
+        // process.env.PORT + '/animation-list'
+        await fetch(`${process.env.PORT || 'http://localhost:8080'}/animation-list`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -21,7 +22,8 @@ const storeLikedAnimation = (username, link) => {
 }
 
 async function getLikedAnimations(username) { 
-    const res = await fetch(`http://localhost:8080/animation-list/?username=${username}`); 
+    // (`${process.env.URL}/${process.env.PORT}/animation-list/?username=${username}`)
+    const res = await fetch(`${process.env.PORT || 'http://localhost:8080'}/animation-list/?username=${username}`); 
     const json = await res.json();
     const likedAnimations = json.animationList;
 
