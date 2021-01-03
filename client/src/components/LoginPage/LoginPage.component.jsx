@@ -23,6 +23,7 @@ const LoginPage = () => {
                 alert('You must fill in all fields');
             }, 800);
         } else {
+            //fetch(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/login`, {
             fetch('http://localhost:8080/login', {
                 method: 'POST',
                 headers: {

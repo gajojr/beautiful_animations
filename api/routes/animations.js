@@ -64,7 +64,7 @@ const connect = () => {
         if (err) return handleError(err);
         // saved!
     });*/
-    return mongoose.connect('mongodb://localhost:27017/animationsdb', { useNewUrlParser: true, useUnifiedTopology: true });
+    return mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/animationsdb', { useNewUrlParser: true, useUnifiedTopology: true });
 };
 
 connect();

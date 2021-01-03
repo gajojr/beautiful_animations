@@ -7,8 +7,6 @@ import RegisterPage from '../src/components/RegisterPage/RegisterPage.component'
 import UserPage from '../src/components/UserPage/UserPage.component';
 import AdminPage from '../src/components/AdminPage/AdminPage.component';
 
-// import './App.css';
-
 import LoginFailedComponent from '../src/components/LoginFailed/LoginFailed.component';
 import RegisterFailedComponent from '../src/components/RegisterFailed/RegisterFailed.component';
 

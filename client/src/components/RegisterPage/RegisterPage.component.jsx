@@ -29,7 +29,8 @@ const RegisterPage = () => {
             window.location.reload();
             return;
         } 
-        fetch('http://localhost:8080/register', {        
+        //fetch(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/register`, {       
+        fetch('http://localhost:8080/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -27,6 +27,7 @@ export function addAnimation(animationName, gifAddress, description, linkToPage)
         // send data to db to make new animation new animation
 
         (async() => {
+            // await fetch(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/animations`, {
             await fetch('http://localhost:8080/animations', {
                 method: 'POST',
                 headers: {
@@ -59,6 +60,7 @@ export function updateAnimation(linkToFind, name, gifAddress, description, linkT
         // update animation by sending data to animations db
 
         (async() => {
+            //await fetch(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/animations`, {
             await fetch('http://localhost:8080/animations', {
                 method: 'PUT',
                 headers: {
@@ -91,6 +93,7 @@ export function deleteAnimation(linkToDeleteBy) {
         // delete data from animations db
 
         (async() => {
+            //await fetch(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/animations`, {
             await fetch('http://localhost:8080/animations', {
                 method: 'DELETE',
                 headers: {
@@ -118,7 +121,8 @@ export function changePassword(username, oldPassword, newPassword) {
         // update user's data
 
         (async() => {
-            await fetch('http://localhost:8080/login/change-password', {
+            //await fetch(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/animations`, {
+            await fetch('http://localhost:8080/animations', {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
