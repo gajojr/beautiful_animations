@@ -19,5 +19,6 @@
     "bugs": {
         "url": "https://github.com/gajojr/beautiful_animations/issues"
     },
-    "homepage": "https://github.com/gajojr/beautiful_animations#readme"
+    "homepage": "https://github.com/gajojr/beautiful_animations#readme",
+    "devDependencies": {}
 }
