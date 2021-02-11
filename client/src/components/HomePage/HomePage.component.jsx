@@ -18,10 +18,7 @@ function HomePage() {
     <HomePageComponent>
       <HeaderComponent/>
       <AnimationsContainer 
-        // db location
-        // snippets={getFromDB(`http://${(process.env.PORT + process.env.PORT) || 'localhost:8080'}/animations`)}
-        //snippets={getFromDB(`${(process.env.URL + '/' + process.env.PORT) || 'http://localhost:8080'}/animations`)}
-        snippets={getFromDB('http://localhost:8080/animations')}
+        snippets={getFromDB('/animations')}
       />
       <Footer />
     </HomePageComponent>

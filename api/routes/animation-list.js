@@ -1,18 +1,16 @@
+const path = require('path');
+const envPath = path.join(__dirname, '../../.env');
+require('dotenv').config({ path: envPath });
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('./login').User;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/animationsdb', {
+mongoose.connect(process.env.MONGODB_LOCAL_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
-
-// mongoose.connect('mongodb://localhost:27017/animationsdb/?replicaSet=rs');
-// mongoose.connect('mongodb://localhost:27017/animationsdb/?retryWrites=false');
-
-// mongoose.connect('mongodb://DESKTOP-0U13SG3:27017/animationsdb/?replicaSet=rs&retryWrites=false');
-// mongoose.connect('mongodb://localhost:27017/animationsdb/?replicaSet=rs&retryWrites=false');
 
 router.get('/', async(req, res) => {
     // implement transaction
@@ -31,31 +29,7 @@ router.get('/', async(req, res) => {
     }
 });
 
-// router.get('/', async(req, res) => {
-//     // implement transactions
-//     try {
-//         const session = await mongoose.startSession();
-//         session.startTransaction();
-//         const result = await User.findOne({ username: req.query.username }).session(session);
-//         if (result) {
-//             console.log("Liked animations:", result.likedAnimations);
-//             await session.commitTransaction();
-//             session.endSession();
-//             res.send({ animationList: result.likedAnimations });
-//         } else {
-//             console.log("no database result found");
-//             res.sendStatus(404);
-//         }
-//     } catch (e) {
-//         console.log(e);
-//         res.sendStatus(500);
-//     }
-// });
-
-router.put('/', async(req, res) => {
-    console.log("username:", req.body.username);
-    console.log("link:", req.body.link);
-
+router.patch('/', async(req, res) => {
     // if animation is already liked, then dislike it
     // if it's not liked, then store it in db
 
@@ -66,7 +40,7 @@ router.put('/', async(req, res) => {
         } else {
             user.likedAnimations = arrayRemove(user.likedAnimations, user.likedAnimations[user.likedAnimations.indexOf(req.body.link)]);
         }
-        user.save();
+        await user.save();
     } catch (error) {
         console.log("Error on put request(animation-list)", error);
     }

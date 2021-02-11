@@ -20,5 +20,8 @@
         "url": "https://github.com/gajojr/beautiful_animations/issues"
     },
     "homepage": "https://github.com/gajojr/beautiful_animations#readme",
-    "devDependencies": {}
+    "devDependencies": {},
+    "dependencies": {
+        "dotenv": "^8.2.0"
+    }
 }

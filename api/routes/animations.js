@@ -1,3 +1,7 @@
+const path = require('path');
+const envPath = path.join(__dirname, '../../.env');
+require('dotenv').config({ path: envPath });
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -54,17 +58,11 @@ router.delete('/', async(req, res) => {
 });
 
 const connect = () => {
-    /*const animation = new Animation({
-        name: "Neka animacija",
-        gifAddress: "/images/animation_gifs/placeholder.jfif",
-        description: "Ide gas",
-        linkToAnimationPage: "http://localhost:8080/testAPI"
+    return mongoose.connect(process.env.MONGODB_LOCAL_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
     });
-    animation.save(function(err) {
-        if (err) return handleError(err);
-        // saved!
-    });*/
-    return mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/animationsdb', { useNewUrlParser: true, useUnifiedTopology: true });
 };
 
 connect();
