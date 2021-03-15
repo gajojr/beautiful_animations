@@ -1,5 +1,6 @@
 {
     "name": "animations",
+    "proxy": "http://localhost:8080",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -43,6 +44,5 @@
     "main": "index.js",
     "keywords": [],
     "author": "",
-    "license": "ISC",
-    "proxy": "http://localhost:8080"
+    "license": "ISC"
 }

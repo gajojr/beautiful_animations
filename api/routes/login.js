@@ -1,3 +1,5 @@
+require('../db/connect');
+
 const express = require('express');
 const router = express.Router();
 
@@ -38,7 +40,6 @@ router.post('/', async(req, res) => {
         if (result) {
             const role = result.role;
             const match = await bcrypt.compare(req.body.password, result.password);
-            console.log("Match:", match);
             if (match) {
                 if (role === 'admin') {
                     console.log('Found user with admin role');
@@ -66,10 +67,8 @@ router.put('/change-password', async(req, res) => {
     let match = null;
     await User.findOne({ username: req.body.username }, async(err, result) => {
         if (result) {
-            console.log("ima rezlutat");
             match = await bcrypt.compare(req.body.oldPassword, result.password);
             if (match) {
-                console.log("ima match");
                 const salt = await bcrypt.genSalt(10);
                 const hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
                 await User.findOneAndUpdate({

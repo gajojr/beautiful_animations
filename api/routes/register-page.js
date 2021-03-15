@@ -1,17 +1,8 @@
-const path = require('path');
-const envPath = path.join(__dirname, '../../.env');
-require('dotenv').config({ path: envPath });
+require('../db/connect');
 
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const User = require('./login').User;
-
-mongoose.connect(process.env.MONGODB_LOCAL_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-});
 
 router.post('/', async(req, res) => {
     console.log("USername mi je :", req.body.username);

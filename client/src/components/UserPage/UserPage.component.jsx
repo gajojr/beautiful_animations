@@ -16,7 +16,7 @@ const UserPage = () => {
     const [animationList, setAnimationList] = useState([]);
 
     useEffect(() => {
-        getFromDB(`/animation-list/?username=${sessionStorage.getItem('username')}`).then(data => {    
+        getFromDB(`http://localhost:8080/animation-list/?username=${sessionStorage.getItem('username')}`).then(data => {
             setAnimationList(data);
         })
     }, []);
@@ -31,15 +31,15 @@ const UserPage = () => {
                     animationList.map((animationLink, index) => {
                         return (
                             <Styles.Li key={index}>
-                                <a href={`${animationLink}`}  style={{color: '#000'}}>{animationLink.substring(animationLink.lastIndexOf('/') + 1, animationLink.lastIndexOf('.'))}</a>
+                                <a href={`${animationLink}`} style={{ color: '#000' }}>{animationLink.substring(animationLink.lastIndexOf('/') + 1, animationLink.lastIndexOf('.'))}</a>
                             </Styles.Li>
                         )
                     })
                 }
             </Styles.Ul>
-            <Styles.Span>Go to animations <Link to="/" style={{color: '#000'}}>page</Link></Styles.Span>
+            <Styles.Span>Go to animations <Link to="/" style={{ color: '#000' }}>page</Link></Styles.Span>
         </Styles.Main>
     )
-}   
+}
 
 export default UserPage;

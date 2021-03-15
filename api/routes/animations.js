@@ -1,6 +1,4 @@
-const path = require('path');
-const envPath = path.join(__dirname, '../../.env');
-require('dotenv').config({ path: envPath });
+require('../db/connect');
 
 const express = require('express');
 const router = express.Router();
@@ -13,7 +11,7 @@ const animationSchema = new mongoose.Schema({
     linkToAnimationPage: String
 });
 
-const Animation = mongoose.model('animations', animationSchema);
+const Animation = mongoose.model(' animations', animationSchema);
 
 router.get('/', async(req, res) => {
     await Animation.find({}, (err, docs) => {
@@ -56,15 +54,5 @@ router.delete('/', async(req, res) => {
         }
     });
 });
-
-const connect = () => {
-    return mongoose.connect(process.env.MONGODB_LOCAL_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true
-    });
-};
-
-connect();
 
 module.exports = router;

@@ -5,8 +5,8 @@ import { IconContext } from 'react-icons';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 const storeLikedAnimation = (username, link) => {
-    (async() => {
-        await fetch('/animation-list', {
+    (async () => {
+        await fetch('http://localhost:8080/animation-list', {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
@@ -20,8 +20,8 @@ const storeLikedAnimation = (username, link) => {
     })();
 }
 
-async function getLikedAnimations(username) {  
-    const res = await fetch(`/animation-list/?username=${username}`);
+async function getLikedAnimations(username) {
+    const res = await fetch(`http://localhost:8080/animation-list/?username=${username}`);
     const json = await res.json();
     const likedAnimations = json.animationList;
 
@@ -34,8 +34,8 @@ const Animation = ({ name, gif, description, link }) => {
     const [change, setChange] = useState(false);
 
     useEffect(() => {
-        if(sessionStorage.getItem('username')) {
-                getLikedAnimations(sessionStorage.getItem('username')).then(likedAnimations => {
+        if (sessionStorage.getItem('username')) {
+            getLikedAnimations(sessionStorage.getItem('username')).then(likedAnimations => {
                 setLikedAnimations(likedAnimations);
             });
         }
@@ -51,15 +51,15 @@ const Animation = ({ name, gif, description, link }) => {
                         Visit
                     </Styles.AnimationLink>
                 </Styles.AnimationLinkHeader>
-            </Styles.HeaderLink>  
-            <Styles.Img src={gif} alt={name}/>
+            </Styles.HeaderLink>
+            <Styles.Img src={gif} alt={name} />
             <div style={{
-                    display: 'flex', 
-                    flexDirection: 'row', 
-                    justifyContent: 'space-between'
-                }}
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between'
+            }}
             >
-                <Styles.Description>{description}</Styles.Description> 
+                <Styles.Description>{description}</Styles.Description>
                 {sessionStorage.getItem('username') ?
                     <IconContext.Provider value={{ color: 'red', size: 34 }}>
                         <Styles.LikeBtn onClick={() => {
@@ -70,10 +70,10 @@ const Animation = ({ name, gif, description, link }) => {
                                 console.log("State:", likedAnimations);
                             });
                         }}>
-                            {likedAnimations.indexOf(link) !== -1 ? <AiFillHeart/> : <AiOutlineHeart/>}
+                            {likedAnimations.indexOf(link) !== -1 ? <AiFillHeart /> : <AiOutlineHeart />}
                         </Styles.LikeBtn>
                     </IconContext.Provider> : null}
-            </div>     
+            </div>
         </Styles.Block>
     );
 }
