@@ -11,7 +11,7 @@ const animationSchema = new mongoose.Schema({
     linkToAnimationPage: String
 });
 
-const Animation = mongoose.model(' animations', animationSchema);
+const Animation = mongoose.model('animations', animationSchema);
 
 router.get('/', async(req, res) => {
     await Animation.find({}, (err, docs) => {

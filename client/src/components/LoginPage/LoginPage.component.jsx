@@ -23,7 +23,7 @@ const LoginPage = () => {
                 alert('You must fill in all fields');
             }, 800);
         } else {
-            fetch('http://localhost:8080/login', {
+            fetch('/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

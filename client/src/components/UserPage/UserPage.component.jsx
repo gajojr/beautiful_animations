@@ -16,7 +16,7 @@ const UserPage = () => {
     const [animationList, setAnimationList] = useState([]);
 
     useEffect(() => {
-        getFromDB(`http://localhost:8080/animation-list/?username=${sessionStorage.getItem('username')}`).then(data => {
+        getFromDB(`/animation-list/?username=${sessionStorage.getItem('username')}`).then(data => {
             setAnimationList(data);
         })
     }, []);

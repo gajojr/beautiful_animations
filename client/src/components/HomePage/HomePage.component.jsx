@@ -18,7 +18,7 @@ function HomePage() {
     <HomePageComponent>
       <HeaderComponent />
       <AnimationsContainer
-        snippets={getFromDB('http://localhost:8080/animations')}
+        snippets={getFromDB('/animations')}
       />
       <Footer />
     </HomePageComponent>

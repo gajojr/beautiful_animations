@@ -30,7 +30,7 @@ const RegisterPage = () => {
             return;
         }
         //fetch(`${(process.env.URL + '/' + process.env.PORT) || ''}/register`, {       
-        fetch('http://localhost:8080/register', {
+        fetch('/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

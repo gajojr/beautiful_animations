@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 const storeLikedAnimation = (username, link) => {
     (async () => {
-        await fetch('http://localhost:8080/animation-list', {
+        await fetch('/animation-list', {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
@@ -21,7 +21,7 @@ const storeLikedAnimation = (username, link) => {
 }
 
 async function getLikedAnimations(username) {
-    const res = await fetch(`http://localhost:8080/animation-list/?username=${username}`);
+    const res = await fetch(`/animation-list/?username=${username}`);
     const json = await res.json();
     const likedAnimations = json.animationList;
 
